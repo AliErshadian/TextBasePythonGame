@@ -6,10 +6,7 @@ import textwrap
 import sys
 import os
 import time
-from random import *
-
-scrren_width = 100
-
+from random import randint
 
 
 ##player setup
@@ -102,6 +99,7 @@ LEFT = 'left', 'west'
 RIGHT = 'right', 'east'
 
 places = ["a1","a2","a3","a4","b1","b2","b3","b4","c1","c2","c3","c4","d1","d2","d3","d4"]
+
 solved_places = {'a1' : False, 'a2': False, 'a3': False, 'a4': False,
                  'b1': False, 'b2': False, 'b3': False, 'b4': False,
                  'c1': False, 'c2': False, 'c3': False, 'c4': False,
@@ -260,7 +258,6 @@ zonemap = {
 def print_location():
     printInGame('\n' + ('#' * (4 + len(zonemap[myPlayer.location][ZONENAME]))) + "\n", 0.05)
     printInGame('# ' + zonemap[myPlayer.location][ZONENAME] + ' #', 0.05)
-    #print('# '+ myPlayer.location.upper() + ' #')
     printInGame('\n' + ('#' * (4 + len(zonemap[myPlayer.location][ZONENAME]))), 0.05)
 
 def prompt():
@@ -309,7 +306,6 @@ def player_move(myAction):
             movement_handler(destination)
 
 def movement_handler(destination):
-    #printInGame("\n" + "You have moved to the " + destination + ".", 0.05)
     myPlayer.location = destination
     print_location()
 
